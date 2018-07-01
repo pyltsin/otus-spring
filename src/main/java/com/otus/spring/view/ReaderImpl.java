@@ -1,8 +1,11 @@
-package com.otus.spring;
+package com.otus.spring.view;
 
-import java.io.Console;
+import com.otus.spring.dao.MessageHolder;
+import org.springframework.stereotype.Service;
+
 import java.util.Scanner;
 
+@Service
 public class ReaderImpl implements Reader {
     private final Writer writer;
     private Scanner scanner;

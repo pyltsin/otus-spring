@@ -1,5 +1,10 @@
-package com.otus.spring;
+package com.otus.spring.view;
 
+import com.otus.spring.dao.MessageHolder;
+import com.otus.spring.model.User;
+import org.springframework.stereotype.Service;
+
+@Service
 public class UserReaderImpl implements UserReader {
     private final Writer writer;
     private final Reader reader;

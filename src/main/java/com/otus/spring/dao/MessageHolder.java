@@ -1,4 +1,7 @@
-package com.otus.spring;
+package com.otus.spring.dao;
+
+import com.otus.spring.model.Score;
+import com.otus.spring.model.User;
 
 public interface MessageHolder {
     String hello();

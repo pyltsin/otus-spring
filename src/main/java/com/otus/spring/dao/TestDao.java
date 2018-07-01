@@ -1,4 +1,4 @@
-package com.otus.spring;
+package com.otus.spring.dao;
 
 public interface TestDao {
     String readQuestion(int key);

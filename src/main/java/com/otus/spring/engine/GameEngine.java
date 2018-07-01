@@ -1,4 +1,4 @@
-package com.otus.spring;
+package com.otus.spring.engine;
 
 public interface GameEngine {
     void start();

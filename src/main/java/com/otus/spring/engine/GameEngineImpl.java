@@ -1,5 +1,13 @@
-package com.otus.spring;
+package com.otus.spring.engine;
 
+import com.otus.spring.dao.MessageHolder;
+import com.otus.spring.model.User;
+import com.otus.spring.service.Tester;
+import com.otus.spring.view.UserReader;
+import com.otus.spring.view.Writer;
+import org.springframework.stereotype.Service;
+
+@Service
 public class GameEngineImpl implements  GameEngine{
     private final Writer writer;
     private final Tester tester;

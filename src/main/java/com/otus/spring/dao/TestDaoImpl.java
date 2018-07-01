@@ -1,20 +1,23 @@
-package com.otus.spring;
+package com.otus.spring.dao;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class TestDaoImpl implements TestDao {
     private List<String> questions;
     private List<String> answer;
 
-    public TestDaoImpl(String pathToQuestion, String pathToAnswer) {
+    public TestDaoImpl(@Value("${question}") String pathToQuestion,
+                       @Value("${answer}") String pathToAnswer) {
         questions = new ArrayList<>();
         answer = new ArrayList<>();
         fillList(questions, pathToQuestion);

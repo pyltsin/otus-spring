@@ -1,4 +1,4 @@
-package com.otus.spring;
+package com.otus.spring.model;
 
 import java.util.ArrayList;
 import java.util.List;

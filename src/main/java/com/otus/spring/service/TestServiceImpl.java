@@ -1,4 +1,9 @@
-package com.otus.spring;
+package com.otus.spring.service;
+
+import com.otus.spring.dao.TestDao;
+import com.otus.spring.model.Score;
+import com.otus.spring.model.Test;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +11,7 @@ import java.util.Random;
 
 import static java.util.stream.Collectors.toList;
 
+@Service
 public class TestServiceImpl implements TestService {
     private final TestDao testDao;
 

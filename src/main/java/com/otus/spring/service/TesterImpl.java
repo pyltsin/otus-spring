@@ -1,5 +1,14 @@
-package com.otus.spring;
+package com.otus.spring.service;
 
+import com.otus.spring.view.Reader;
+import com.otus.spring.view.Writer;
+import com.otus.spring.dao.MessageHolder;
+import com.otus.spring.model.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+@Service
 public class TesterImpl implements Tester {
     private final Reader reader;
     private final Writer writer;
@@ -7,7 +16,8 @@ public class TesterImpl implements Tester {
     private final MessageHolder messageHolder;
     private int count = 5;
 
-    public void setCount(int count) {
+    @Autowired
+    public void setCount(@Value("${count}") int count) {
         this.count = count;
     }
 
