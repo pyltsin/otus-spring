@@ -8,7 +8,7 @@ import com.otus.spring.view.Writer;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GameEngineImpl implements  GameEngine{
+public class GameEngineImpl implements GameEngine {
     private final Writer writer;
     private final Tester tester;
     private final UserReader userReader;

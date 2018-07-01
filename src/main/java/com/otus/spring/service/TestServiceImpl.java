@@ -21,7 +21,7 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public Test createTest(int count) {
-        List<Integer> keys = new Random().ints(count, 0, 9).boxed().collect(toList());
+        List<Integer> keys = new Random().ints(count, 0, testDao.size() - 1).boxed().collect(toList());
         List<String> q = keys.stream().map(testDao::readQuestion).collect(toList());
         List<String> a = keys.stream().map(testDao::readAnswer).collect(toList());
         return new Test(q, a);

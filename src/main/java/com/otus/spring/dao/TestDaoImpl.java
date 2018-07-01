@@ -43,6 +43,11 @@ public class TestDaoImpl implements TestDao {
 
 
     @Override
+    public int size(){
+        return questions.size();
+    }
+
+    @Override
     public String readQuestion(int key) {
         return questions.get(key);
     }
