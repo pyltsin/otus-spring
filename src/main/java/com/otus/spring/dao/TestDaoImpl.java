@@ -16,8 +16,8 @@ public class TestDaoImpl implements TestDao {
     private List<String> questions;
     private List<String> answer;
 
-    public TestDaoImpl(@Value("${question}") String pathToQuestion,
-                       @Value("${answer}") String pathToAnswer) {
+    public TestDaoImpl(@Value("${task.question.path}") String pathToQuestion,
+                       @Value("${task.answer.path}") String pathToAnswer) {
         questions = new ArrayList<>();
         answer = new ArrayList<>();
         fillList(questions, pathToQuestion);

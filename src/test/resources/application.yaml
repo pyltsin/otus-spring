@@ -1,0 +1,9 @@
+messages:
+ path: "/bundle/bundle"
+ locale: "RU"
+task:
+ question:
+  path: "/test.csv"
+ answer:
+  path: "/answer.csv"
+ count: 5

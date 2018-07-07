@@ -2,7 +2,7 @@ package com.otus.spring.service;
 
 import com.otus.spring.dao.TestDao;
 import com.otus.spring.model.Score;
-import com.otus.spring.model.Test;
+import com.otus.spring.model.TestData;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,22 +20,22 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
-    public Test createTest(int count) {
+    public TestData createTest(int count) {
         List<Integer> keys = new Random().ints(count, 0, testDao.size() - 1).boxed().collect(toList());
         List<String> q = keys.stream().map(testDao::readQuestion).collect(toList());
         List<String> a = keys.stream().map(testDao::readAnswer).collect(toList());
-        return new Test(q, a);
+        return new TestData(q, a);
     }
 
     @Override
-    public Score getScore(Test test) {
+    public Score getScore(TestData testData) {
         int score = 0;
         List<String> wrong = new ArrayList<>();
-        for (int i = 0; i < test.getAnswer().size(); i++) {
-            if (test.getAnswer().get(i).equals(test.getAnswerFromUser().get(i))) {
+        for (int i = 0; i < testData.getAnswer().size(); i++) {
+            if (testData.getAnswer().get(i).equals(testData.getAnswerFromUser().get(i))) {
                 score++;
             } else {
-                wrong.add(test.getAnswerFromUser().get(i));
+                wrong.add(testData.getAnswerFromUser().get(i));
             }
         }
         return new Score(String.valueOf(score), wrong);

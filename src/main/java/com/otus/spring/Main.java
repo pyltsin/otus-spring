@@ -1,35 +1,31 @@
 package com.otus.spring;
 
-import com.otus.spring.engine.GameEngine;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
+import com.otus.spring.model.MessagesProperties;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.*;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 
-@Configuration
-@PropertySource("classpath:application.properties")
-@ComponentScan
+@SuppressWarnings("SpringJavaAutowiredFieldsWarningInspection")
+@SpringBootApplication
+@EnableConfigurationProperties(MessagesProperties.class)
 public class Main {
 
-    @Bean
-    static PropertySourcesPlaceholderConfigurer propertyPlaceholderConfigurer() {
-        return new PropertySourcesPlaceholderConfigurer();
-    }
+    @Autowired
+    private MessagesProperties messagesProperties;
 
     @Bean
-    MessageSource messageSource(@Value("${messages}")
-                                        String bundle) {
+    MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasename(bundle);
+        messageSource.setBasename(messagesProperties.getPath());
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
     }
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Main.class);
-        GameEngine game = context.getBean(GameEngine.class);
-        game.start();
+        SpringApplication.run(Main.class, args);
     }
 }

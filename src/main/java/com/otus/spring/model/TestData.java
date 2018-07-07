@@ -3,13 +3,13 @@ package com.otus.spring.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Test {
+public class TestData {
 
     private final List<String> question;
     private final List<String> answer;
     private final List<String> answerFromUser;
 
-    public Test(List<String> question, List<String> answer) {
+    public TestData(List<String> question, List<String> answer) {
         this.question = question;
         this.answer = answer;
         answerFromUser = new ArrayList<>(question.size());

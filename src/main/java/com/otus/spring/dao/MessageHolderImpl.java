@@ -15,7 +15,7 @@ public class MessageHolderImpl implements MessageHolder {
     private final MessageSource ms;
 
     public MessageHolderImpl(MessageSource messageSource,
-                             @Value("${locale}") String locale) {
+                             @Value("${messages.locale}") String locale) {
         this.ms = messageSource;
         this.locale = Locale.forLanguageTag(locale);
     }

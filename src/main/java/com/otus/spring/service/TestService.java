@@ -1,10 +1,10 @@
 package com.otus.spring.service;
 
 import com.otus.spring.model.Score;
-import com.otus.spring.model.Test;
+import com.otus.spring.model.TestData;
 
 public interface TestService {
-    Test createTest(int count);
+    TestData createTest(int count);
 
-    Score getScore(Test test);
+    Score getScore(TestData testData);
 }
