@@ -16,6 +16,10 @@ public class TesterImpl implements Tester {
     private final MessageHolder messageHolder;
     private int count = 5;
 
+    public int getCount() {
+        return count;
+    }
+
     @Autowired
     public void setCount(@Value("${task.count}") int count) {
         this.count = count;

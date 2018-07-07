@@ -6,4 +6,4 @@ task:
   path: "/test.csv"
  answer:
   path: "/answer.csv"
- count: 5
+ count: 4
