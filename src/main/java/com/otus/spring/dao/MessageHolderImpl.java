@@ -1,8 +1,9 @@
 package com.otus.spring.dao;
 
+import com.otus.spring.model.MessagesProperties;
 import com.otus.spring.model.Score;
 import com.otus.spring.model.User;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +15,11 @@ public class MessageHolderImpl implements MessageHolder {
     private final Locale locale;
     private final MessageSource ms;
 
+    @Autowired
     public MessageHolderImpl(MessageSource messageSource,
-                             @Value("${messages.locale}") String locale) {
+                             MessagesProperties messagesProperties) {
         this.ms = messageSource;
-        this.locale = Locale.forLanguageTag(locale);
+        this.locale = Locale.forLanguageTag(messagesProperties.getLocale());
     }
 
 

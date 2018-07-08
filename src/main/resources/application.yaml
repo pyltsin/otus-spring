@@ -1,9 +1,9 @@
 messages:
- path: "/bundle/bundle"
- locale: "RU"
+ path: /bundle/bundle
+ locale: RU
 task:
  question:
-  path: "/test.csv"
+  path: /test.csv
  answer:
-  path: "/answer.csv"
+  path: /answer.csv
  count: 5
