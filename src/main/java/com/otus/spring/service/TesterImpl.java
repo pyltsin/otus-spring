@@ -14,16 +14,6 @@ public class TesterImpl implements Tester {
     private final Writer writer;
     private final TestService testService;
     private final MessageHolder messageHolder;
-    private int count = 5;
-
-    public int getCount() {
-        return count;
-    }
-
-    @Autowired
-    public void setCount(@Value("${task.count}") int count) {
-        this.count = count;
-    }
 
     public TesterImpl(Reader reader, Writer writer, TestService testService, MessageHolder messageHolder) {
         this.reader = reader;
@@ -32,7 +22,7 @@ public class TesterImpl implements Tester {
         this.messageHolder = messageHolder;
     }
 
-    public void start() {
+    public void start(int count) {
         TestData testData = testService.createTest(count);
         for (int i = 0; i < count; i++) {
             writer.print(testData.getQuestion(i));
