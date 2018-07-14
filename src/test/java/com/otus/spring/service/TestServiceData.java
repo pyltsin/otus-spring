@@ -1,26 +1,27 @@
 package com.otus.spring.service;
 
-import com.otus.spring.MainTestData;
 import com.otus.spring.model.TestData;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.shell.jline.InteractiveShellApplicationRunner;
+import org.springframework.shell.jline.ScriptShellApplicationRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 
-public class TestServiceData extends MainTestData {
+@SpringBootTest(properties = {
+        ScriptShellApplicationRunner.SPRING_SHELL_SCRIPT_ENABLED + "=false",
+        InteractiveShellApplicationRunner.SPRING_SHELL_INTERACTIVE_ENABLED + "=false"
+})
+@RunWith(SpringRunner.class)
+public class TestServiceData  {
 
     @Autowired
     private TestService testService;
-
-    @Autowired
-    private Tester tester;
-
-    @Test
-    public void testCount() {
-        assertEquals(4, ((TesterImpl) tester).getCount());
-    }
 
     @Test
     public void getScore() {

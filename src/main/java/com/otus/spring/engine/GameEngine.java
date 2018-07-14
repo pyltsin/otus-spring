@@ -1,5 +1,5 @@
 package com.otus.spring.engine;
 
 public interface GameEngine {
-    void start();
+    void start(int countQuesion);
 }

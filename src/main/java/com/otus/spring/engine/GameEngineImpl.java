@@ -21,10 +21,10 @@ public class GameEngineImpl implements GameEngine {
         this.messageHolder = messageHolder;
     }
 
-    public void start() {
+    public void start(int countQuestion) {
         writer.print(messageHolder.hello());
         User user = userReader.readUser();
-        tester.start();
+        tester.start(countQuestion);
         writer.print(messageHolder.buy(user));
     }
 }
